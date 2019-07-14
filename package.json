@@ -22,6 +22,8 @@
     "start:test": "mocha \"dist/**/tests/*.test.js\" --timeout 4000 --exit",
     "start:test:system": "mocha \"dist/**/tests/*.system.test.js\" --timeout 4000 --exit",
     "clean": "./node_modules/.bin/rimraf ./dist",
+    "DEPLOYING": "____________________________________________________________",
+    "deploy_all": "npm-run-all --parallel deploy_helloWorldHTTP --serial test:system",
     "deploy_helloWorldHTTP": "npm-run-all build deploy_helloWorldHTTPMain",
     "deploy_helloWorldHTTPMain": "gcloud functions deploy helloWorldHTTP --source ./dist --runtime nodejs10 --trigger-http"
   },

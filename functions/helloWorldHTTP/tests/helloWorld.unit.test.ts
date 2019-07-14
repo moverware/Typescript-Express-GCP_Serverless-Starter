@@ -1,4 +1,3 @@
-import { SinonStub } from 'sinon'
 import { ok, deepStrictEqual } from 'assert'
 import { Request, Response } from 'express'
 import { mockReq, mockRes } from 'sinon-express-mock'
@@ -37,6 +36,6 @@ it('helloWorldHttp: should print echo from body', () => {
     helloWorldHTTP(req as Request, res as Response)
 
     // Verify behavior of tested function
-    ok((res.json as SinonStub).calledOnce)
-    deepStrictEqual((res.json as SinonStub).firstCall.args, [{ echo: 'Test1' }])
+    ok(res.json.calledOnce)
+    deepStrictEqual(res.json.firstCall.args, [{ echo: 'Test1' }])
 })
